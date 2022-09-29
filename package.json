@@ -1,0 +1,48 @@
+{
+  "name": "simple-todo-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky install",
+    "precommit": "npm run format && npm run lint",
+    "watch": "npm run watch:sass & npm run watch:ts",
+    "watch:sass": "sass src/scss/:dist/css/ --no-source-map --watch",
+    "watch:ts": "tsc -watch",
+    "lint": "eslint --fix .",
+    "format": "prettier --write .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "precommit"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasegawa2073/simpleToDoApp.git"
+  },
+  "keywords": [
+    "simpleToDoApp",
+    "todo"
+  ],
+  "author": "Tatsuya Hasegawa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hasegawa2073/simpleToDoApp/issues"
+  },
+  "homepage": "https://github.com/hasegawa2073/simpleToDoApp#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/parser": "^5.38.1",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.7.1",
+    "sass": "^1.55.0",
+    "typescript": "^4.8.4"
+  },
+  "type": "module"
+}
