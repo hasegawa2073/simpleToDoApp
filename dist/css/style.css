@@ -46,7 +46,7 @@ body {
 }
 .todo__button-area {
   display: inline-block;
-  padding: 16px 10px 16px 20px;
+  padding: 16px 15px 16px 20px;
 }
 .todo__button {
   width: var(--done-button-size);
@@ -59,7 +59,7 @@ body {
 .todo__content {
   position: relative;
   display: inline-block;
-  margin: 0 0 0 5px;
+  margin: 0;
   padding: 16px 20px 16px 0;
   width: 100%;
 }

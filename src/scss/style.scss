@@ -47,7 +47,7 @@ body {
   }
   &__button-area {
     display: inline-block;
-    padding: 16px 10px 16px 20px;
+    padding: 16px 15px 16px 20px;
   }
   &__button {
     width: var(--done-button-size);
@@ -60,7 +60,7 @@ body {
   &__content {
     position: relative;
     display: inline-block;
-    margin: 0 0 0 5px;
+    margin: 0;
     padding: 16px 20px 16px 0;
     width: 100%;
     &::after {
