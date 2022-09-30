@@ -1,6 +1,6 @@
-import { todoUl } from '../../variables/variables.js';
+import { todoUl } from "../../variables/variables.js";
 export const ClearItem = () => {
-    todoUl?.addEventListener('focusout', () => {
+    todoUl?.addEventListener("focusout", () => {
         localStorage.clear();
     });
 };
