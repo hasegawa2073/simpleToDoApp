@@ -5,6 +5,7 @@
   --gray: #bcbcbc;
   --light-gray: #e5e5e5;
   --done-button-size: 24px;
+  --add-button-size: 62px;
 }
 
 html {
@@ -71,4 +72,37 @@ body {
   color: var(--dark-gray);
   outline: none;
   cursor: text;
+}
+
+.add {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+.add__button {
+  padding: 0;
+  width: var(--add-button-size);
+  height: var(--add-button-size);
+  background-color: var(--blue);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.add__button::before, .add__button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+.add__button::after {
+  transform: rotate(90deg);
 }
