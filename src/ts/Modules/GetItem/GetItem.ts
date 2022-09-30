@@ -1,4 +1,4 @@
-import { todoUl } from '../../variables/variables.js';
+import { todoUl } from "../../variables/variables.js";
 
 export const GetItem = () => {
   const localStorageItemLength = localStorage.length - 1;
@@ -18,6 +18,6 @@ export const GetItem = () => {
       </p>
     </li>
     `;
-    todoUl?.insertAdjacentHTML('afterbegin', todoLiHtml);
+    todoUl?.insertAdjacentHTML("afterbegin", todoLiHtml);
   }
 };
