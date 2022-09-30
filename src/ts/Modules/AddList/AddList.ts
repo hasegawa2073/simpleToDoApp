@@ -1,6 +1,6 @@
-import { addButton, todoUl } from '../../variables/variables.js';
-import { FocusList } from '../FocusList/FocusList.js';
-import { RemoveEmptyList } from '../RemoveEmptyList/RemoveEmptyList.js';
+import { addButton, todoUl } from "../../variables/variables.js";
+import { FocusList } from "../FocusList/FocusList.js";
+import { RemoveEmptyList } from "../RemoveEmptyList/RemoveEmptyList.js";
 
 export const AddList = () => {
   const todoLiHtml = `
@@ -17,8 +17,8 @@ export const AddList = () => {
     </p>
   </li>
   `;
-  addButton?.addEventListener('click', () => {
-    todoUl?.insertAdjacentHTML('beforeend', todoLiHtml);
+  addButton?.addEventListener("click", () => {
+    todoUl?.insertAdjacentHTML("beforeend", todoLiHtml);
     FocusList();
     RemoveEmptyList();
   });
