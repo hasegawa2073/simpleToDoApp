@@ -74,6 +74,7 @@ body {
 }
 .todo__text {
   display: inline-block;
+  min-width: 6em;
   line-height: 1.5em;
   letter-spacing: 0.025em;
   font-family: "Hiragino Kaku Gothic W4";
