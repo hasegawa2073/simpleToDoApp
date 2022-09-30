@@ -31,5 +31,46 @@
       href="https://hasegawa2073.github.io/simpleToDoApp/dist/image/apple-touch-icon.png"
     />
   </head>
-  <body></body>
+  <body>
+    <header class="header">
+      <h1 class="header__title">ToDo</h1>
+    </header>
+    <main class="main">
+      <section class="todo">
+        <ul class="todo__ul" aria-live="assertive" aria-atomic="false">
+          <li class="todo__li">
+            <button
+              class="todo__button"
+              role="done todo"
+              aria-label="Todoを完了させる"
+            ></button>
+            <p class="todo__content">
+              <span class="todo__text" contenteditable="true"
+                >プレゼン資料作成</span
+              >
+            </p>
+          </li>
+          <li class="todo__li">
+            <button
+              class="todo__button"
+              role="done todo"
+              aria-label="Todoを完了させる"
+            ></button>
+            <p class="todo__content">
+              <span class="todo__text" contenteditable="true"
+                >消費期限今日までのプリンとヨーグルトを食べる</span
+              >
+            </p>
+          </li>
+        </ul>
+      </section>
+      <div class="add">
+        <button
+          class="add__button"
+          role="add todo"
+          aria-label="Todoを追加する"
+        ></button>
+      </div>
+    </main>
+  </body>
 </html>
