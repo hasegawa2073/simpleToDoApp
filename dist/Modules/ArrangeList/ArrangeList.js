@@ -1,4 +1,4 @@
-import { todoLists, todoUl } from '../../variables/variables.js';
+import { todoLists, todoUl } from "../../variables/variables.js";
 const targetNode = todoUl;
 const config = { childList: true };
 const arrangeList = () => {
@@ -15,7 +15,7 @@ const arrangeList = () => {
         return accu + curr;
     }, 0);
     todoListsArray.forEach((list, i) => {
-        list.style.left = '0px';
+        list.style.left = "0px";
         list.style.top = `${listTopArray[i]}px`;
     });
 };
