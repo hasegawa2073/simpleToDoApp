@@ -73,7 +73,7 @@ const sortList = {
         listPosition.currentLeft = listPosition.startLeft + coordinates.moveX;
         listPosition.currentTop = listPosition.startTop + coordinates.moveY;
         setListPosTop(sortTopOrderListsArray(todoListsArray));
-        if (list.classList.contains('todo__li--grabbing')) {
+        if (list.classList.contains("todo__li--grabbing")) {
             list.style.left = `${listPosition.currentLeft}px`;
             list.style.top = `${listPosition.currentTop}px`;
         }
@@ -88,22 +88,22 @@ export const SortList = () => {
         ? Array.from(todoLists)
         : [];
     todoListsArray.forEach((list) => {
-        list.addEventListener('touchstart', (e) => {
+        list.addEventListener("touchstart", (e) => {
             sortList.start(e, list);
         });
-        list.addEventListener('touchmove', (e) => {
+        list.addEventListener("touchmove", (e) => {
             sortList.move(e, list, todoListsArray);
         });
-        list.addEventListener('touchend', () => {
+        list.addEventListener("touchend", () => {
             sortList.end(todoListsArray);
         });
-        list.addEventListener('mousedown', (e) => {
+        list.addEventListener("mousedown", (e) => {
             sortList.start(e, list);
         });
-        list.addEventListener('mousemove', (e) => {
+        list.addEventListener("mousemove", (e) => {
             sortList.move(e, list, todoListsArray);
         });
-        list.addEventListener('mouseup', () => {
+        list.addEventListener("mouseup", () => {
             sortList.end(todoListsArray);
         });
     });
