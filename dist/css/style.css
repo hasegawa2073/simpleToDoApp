@@ -44,7 +44,16 @@ body {
   display: flex;
   width: 100%;
   cursor: grab;
-  transition: top 0.3s ease;
+  transition: top 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.todo__li--grabbing {
+  transform-origin: center center;
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  cursor: grabbing;
+}
+.todo__li--grabbing .todo__content::after {
+  display: none;
 }
 .todo__button-area {
   display: inline-block;
