@@ -19,8 +19,12 @@ export const DoneList = () => {
         targetText?.classList.toggle("todo__text--done");
     };
     todoUl?.addEventListener("touchend", (e) => {
+        e.preventDefault();
         const target = e.target;
-        if (target.classList.contains("todo__button-area")) {
+        if (target.classList.contains('todo__button-area')) {
+            doneList(target);
+        }
+        if (target.classList.contains('todo__button')) {
             doneList(target);
         }
     });
