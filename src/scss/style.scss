@@ -60,7 +60,7 @@ body {
     &--done {
       border: 2px solid var(--orange);
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         margin: auto;
         top: 0;
@@ -102,7 +102,7 @@ body {
     outline: none;
     cursor: text;
     &--done {
-      color: rgba($color: #252525, $alpha: .5);
+      color: rgba($color: #252525, $alpha: 0.5);
     }
   }
 }
