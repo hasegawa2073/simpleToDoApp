@@ -7,7 +7,7 @@ const clearItem = () => {
 const observer = new MutationObserver(clearItem);
 export const ClearItem = () => {
     observer.observe(targetNode, config);
-    todoUl?.addEventListener('focusout', () => {
+    todoUl?.addEventListener("focusout", () => {
         clearItem();
     });
 };
