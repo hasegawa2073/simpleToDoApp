@@ -50,12 +50,30 @@ body {
     padding: 16px 15px 16px 20px;
   }
   &__button {
+    position: relative;
     width: var(--done-button-size);
     height: var(--done-button-size);
     background-color: transparent;
     border: 1px solid var(--gray);
     border-radius: 50%;
     cursor: pointer;
+    &--done {
+      border: 2px solid var(--orange);
+      &::before {
+        content: '';
+        position: absolute;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: block;
+        width: 15px;
+        height: 15px;
+        background-color: var(--orange);
+        border-radius: 50%;
+      }
+    }
   }
   &__content {
     position: relative;
@@ -83,6 +101,9 @@ body {
     color: var(--dark-gray);
     outline: none;
     cursor: text;
+    &--done {
+      color: rgba($color: #252525, $alpha: .5);
+    }
   }
 }
 .add {

@@ -49,12 +49,30 @@ body {
   padding: 16px 15px 16px 20px;
 }
 .todo__button {
+  position: relative;
   width: var(--done-button-size);
   height: var(--done-button-size);
   background-color: transparent;
   border: 1px solid var(--gray);
   border-radius: 50%;
   cursor: pointer;
+}
+.todo__button--done {
+  border: 2px solid var(--orange);
+}
+.todo__button--done::before {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: var(--orange);
+  border-radius: 50%;
 }
 .todo__content {
   position: relative;
@@ -82,6 +100,9 @@ body {
   color: var(--dark-gray);
   outline: none;
   cursor: text;
+}
+.todo__text--done {
+  color: rgba(37, 37, 37, 0.5);
 }
 
 .add {
