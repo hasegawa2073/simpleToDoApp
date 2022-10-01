@@ -1,6 +1,13 @@
 import { todoUl } from "../../variables/variables.js";
+export const targetNode = todoUl;
+export const config = { childList: true };
+const clearItem = () => {
+    localStorage.clear();
+};
+const observer = new MutationObserver(clearItem);
 export const ClearItem = () => {
-    todoUl?.addEventListener("focusout", () => {
-        localStorage.clear();
+    observer.observe(targetNode, config);
+    todoUl?.addEventListener('focusout', () => {
+        clearItem();
     });
 };
