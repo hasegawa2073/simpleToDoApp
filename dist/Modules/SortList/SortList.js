@@ -1,4 +1,4 @@
-import { todoLists } from "../../variables/variables.js";
+import { todoLists, todoUl } from '../../variables/variables.js';
 const coordinates = {
     startX: 0,
     startY: 0,
@@ -16,7 +16,7 @@ const listPosition = {
 // リストのleftを0に戻す処理
 const resetListPosLeft = (todoListsArray) => {
     todoListsArray.forEach((list) => {
-        list.style.left = "0px";
+        list.style.left = '0px';
     });
 };
 // topの値順に並び替えたリストの"配列"を返す関数(Map経由で並べ替えてArrayに戻す)
@@ -46,6 +46,12 @@ const setListPosTop = (topOrderListsArray) => {
         }, 0);
     });
 };
+// 並び順とDOMの順番を揃える処理
+const sortDOMTopOrder = (topOrderListsArray) => {
+    topOrderListsArray.forEach((list) => {
+        todoUl?.append(list);
+    });
+};
 const sortList = {
     start(e, list) {
         if (e instanceof TouchEvent) {
@@ -73,7 +79,7 @@ const sortList = {
         listPosition.currentLeft = listPosition.startLeft + coordinates.moveX;
         listPosition.currentTop = listPosition.startTop + coordinates.moveY;
         setListPosTop(sortTopOrderListsArray(todoListsArray));
-        if (list.classList.contains("todo__li--grabbing")) {
+        if (list.classList.contains('todo__li--grabbing')) {
             list.style.left = `${listPosition.currentLeft}px`;
             list.style.top = `${listPosition.currentTop}px`;
         }
@@ -88,23 +94,27 @@ export const SortList = () => {
         ? Array.from(todoLists)
         : [];
     todoListsArray.forEach((list) => {
-        list.addEventListener("touchstart", (e) => {
+        list.addEventListener('touchstart', (e) => {
             sortList.start(e, list);
         });
-        list.addEventListener("touchmove", (e) => {
+        list.addEventListener('touchmove', (e) => {
             sortList.move(e, list, todoListsArray);
         });
-        list.addEventListener("touchend", () => {
+        list.addEventListener('touchend', () => {
             sortList.end(todoListsArray);
         });
-        list.addEventListener("mousedown", (e) => {
+        list.addEventListener('mousedown', (e) => {
             sortList.start(e, list);
         });
-        list.addEventListener("mousemove", (e) => {
+        list.addEventListener('mousemove', (e) => {
             sortList.move(e, list, todoListsArray);
         });
-        list.addEventListener("mouseup", () => {
+        list.addEventListener('mouseup', () => {
             sortList.end(todoListsArray);
         });
     });
 };
+const targetNode = todoUl;
+const config = { childList: true };
+const observer = new MutationObserver(SortList);
+observer.observe(targetNode, config);
