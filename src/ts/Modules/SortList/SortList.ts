@@ -63,36 +63,69 @@ const setListPosTop = (topOrderListsArray: Array<HTMLLIElement>) => {
     }, 0);
   });
 };
+const sortList = {
+  start(e: TouchEvent | MouseEvent, list: HTMLLIElement) {
+    if (e instanceof TouchEvent) {
+      coordinates.startX = e.touches[0].clientX;
+      coordinates.startY = e.touches[0].clientY;
+    }
+    if (e instanceof MouseEvent) {
+      coordinates.startX = e.clientX;
+      coordinates.startY = e.clientY;
+    }
+    listPosition.startLeft = parseInt(list.style.left);
+    listPosition.startTop = parseInt(list.style.top);
+  },
+  move(
+    e: TouchEvent | MouseEvent,
+    list: HTMLLIElement,
+    todoListsArray: Array<HTMLLIElement>
+  ) {
+    if (e instanceof TouchEvent) {
+      coordinates.currentX = e.touches[0].clientX;
+      coordinates.currentY = e.touches[0].clientY;
+    }
+    if (e instanceof MouseEvent) {
+      coordinates.currentX = e.clientX;
+      coordinates.currentY = e.clientY;
+    }
+    coordinates.moveX = coordinates.currentX - coordinates.startX;
+    coordinates.moveY = coordinates.currentY - coordinates.startY;
+    listPosition.currentLeft = listPosition.startLeft + coordinates.moveX;
+    listPosition.currentTop = listPosition.startTop + coordinates.moveY;
+    setListPosTop(sortTopOrderListsArray(todoListsArray));
+    if (list.classList.contains('todo__li--grabbing')) {
+      list.style.left = `${listPosition.currentLeft}px`;
+      list.style.top = `${listPosition.currentTop}px`;
+    }
+  },
+  end(todoListsArray: Array<HTMLLIElement>) {
+    resetListPosLeft(todoListsArray);
+    setListPosTop(sortTopOrderListsArray(todoListsArray));
+  },
+};
 export const SortList = () => {
   const todoListsArray = todoLists
     ? (Array.from(todoLists) as Array<HTMLLIElement>)
     : [];
   todoListsArray.forEach((list) => {
-    list.addEventListener("touchstart", (e) => {
-      console.log(e.touches[0].clientX);
+    list.addEventListener('touchstart', (e) => {
+      sortList.start(e, list);
     });
-    list.addEventListener("mousedown", (e) => {
-      coordinates.startX = e.clientX;
-      coordinates.startY = e.clientY;
-      listPosition.startLeft = parseInt(list.style.left);
-      listPosition.startTop = parseInt(list.style.top);
+    list.addEventListener('touchmove', (e) => {
+      sortList.move(e, list, todoListsArray);
     });
-    list.addEventListener("mousemove", (e) => {
-      coordinates.currentX = e.clientX;
-      coordinates.currentY = e.clientY;
-      coordinates.moveX = coordinates.currentX - coordinates.startX;
-      coordinates.moveY = coordinates.currentY - coordinates.startY;
-      listPosition.currentLeft = listPosition.startLeft + coordinates.moveX;
-      listPosition.currentTop = listPosition.startTop + coordinates.moveY;
-      setListPosTop(sortTopOrderListsArray(todoListsArray));
-      if (list.classList.contains("todo__li--grabbing")) {
-        list.style.left = `${listPosition.currentLeft}px`;
-        list.style.top = `${listPosition.currentTop}px`;
-      }
+    list.addEventListener('touchend', () => {
+      sortList.end(todoListsArray);
     });
-    list.addEventListener("mouseup", () => {
-      resetListPosLeft(todoListsArray);
-      setListPosTop(sortTopOrderListsArray(todoListsArray));
+    list.addEventListener('mousedown', (e) => {
+      sortList.start(e, list);
+    });
+    list.addEventListener('mousemove', (e) => {
+      sortList.move(e, list, todoListsArray);
+    });
+    list.addEventListener('mouseup', () => {
+      sortList.end(todoListsArray);
     });
   });
 };
