@@ -1,6 +1,6 @@
-export const FocusList = () => {
+export const FocusNewList = () => {
   const newTodoText = document.querySelector<HTMLLIElement>(
-    ".todo__li:last-child .todo__text"
+    '.todo__li:last-child .todo__text'
   );
   newTodoText?.focus();
 };
