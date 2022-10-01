@@ -1,4 +1,4 @@
-import { todoLists } from '../../variables/variables.js';
+import { todoLists } from "../../variables/variables.js";
 const coordinates = {
     startX: 0,
     startY: 0,
@@ -16,7 +16,7 @@ const listPosition = {
 // リストのleftを0に戻す処理
 const resetListPosLeft = (todoListsArray) => {
     todoListsArray.forEach((list) => {
-        list.style.left = '0px';
+        list.style.left = "0px";
     });
 };
 // topの値順に並び替えたリストの"配列"を返す関数(Map経由で並べ替えてArrayに戻す)
@@ -51,16 +51,16 @@ export const SortList = () => {
         ? Array.from(todoLists)
         : [];
     todoListsArray.forEach((list) => {
-        list.addEventListener('touchstart', (e) => {
+        list.addEventListener("touchstart", (e) => {
             console.log(e.touches[0].clientX);
         });
-        list.addEventListener('mousedown', (e) => {
+        list.addEventListener("mousedown", (e) => {
             coordinates.startX = e.clientX;
             coordinates.startY = e.clientY;
             listPosition.startLeft = parseInt(list.style.left);
             listPosition.startTop = parseInt(list.style.top);
         });
-        list.addEventListener('mousemove', (e) => {
+        list.addEventListener("mousemove", (e) => {
             coordinates.currentX = e.clientX;
             coordinates.currentY = e.clientY;
             coordinates.moveX = coordinates.currentX - coordinates.startX;
@@ -68,12 +68,12 @@ export const SortList = () => {
             listPosition.currentLeft = listPosition.startLeft + coordinates.moveX;
             listPosition.currentTop = listPosition.startTop + coordinates.moveY;
             setListPosTop(sortTopOrderListsArray(todoListsArray));
-            if (list.classList.contains('todo__li--grabbing')) {
+            if (list.classList.contains("todo__li--grabbing")) {
                 list.style.left = `${listPosition.currentLeft}px`;
                 list.style.top = `${listPosition.currentTop}px`;
             }
         });
-        list.addEventListener('mouseup', () => {
+        list.addEventListener("mouseup", () => {
             resetListPosLeft(todoListsArray);
             setListPosTop(sortTopOrderListsArray(todoListsArray));
         });
