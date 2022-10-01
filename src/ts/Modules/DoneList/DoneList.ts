@@ -22,10 +22,10 @@ export const DoneList = () => {
   todoUl?.addEventListener("touchend", (e) => {
     e.preventDefault();
     const target = e.target as HTMLElement;
-    if (target.classList.contains('todo__button-area')) {
+    if (target.classList.contains("todo__button-area")) {
       doneList(target);
     }
-    if (target.classList.contains('todo__button')) {
+    if (target.classList.contains("todo__button")) {
       doneList(target);
     }
   });
