@@ -1,18 +1,18 @@
-import { todoLists, todoUl } from '../../variables/variables.js';
-import { returnTargetList } from '../DoneList/DoneList.js';
+import { todoLists, todoUl } from "../../variables/variables.js";
+import { returnTargetList } from "../DoneList/DoneList.js";
 
 export const FocusList = () => {
   const todoListsArray = todoLists
     ? (Array.from(todoLists) as Array<HTMLLIElement>)
     : [];
   todoListsArray.forEach((list) => {
-    list.children[1].addEventListener('touchend', (e) => {
+    list.children[1].addEventListener("touchend", (e) => {
       const target = e.target as HTMLElement;
       const targetList = returnTargetList(target);
-      const targetNode = targetList?.querySelector('.todo__text')
+      const targetNode = targetList?.querySelector(".todo__text")
         ?.firstChild as Node;
       const targetText = targetList?.querySelector(
-        '.todo__text'
+        ".todo__text"
       ) as HTMLElement;
       const targetTextLength = targetText.textContent?.length as number;
       const selection = window.getSelection();
@@ -22,8 +22,8 @@ export const FocusList = () => {
       selection?.removeAllRanges();
       selection?.addRange(range);
       if (
-        target.classList.contains('todo__content') ||
-        target.classList.contains('todo__text')
+        target.classList.contains("todo__content") ||
+        target.classList.contains("todo__text")
       ) {
         targetText.focus();
       }
