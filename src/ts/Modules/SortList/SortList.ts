@@ -53,16 +53,6 @@ const sortTopOrderListsArray = (todoListsArray: Array<HTMLLIElement>) => {
   return topOrderListsArray;
 };
 // 自分より上に位置する(topの値が小さい)リストの高さの合計をtopにそれぞれに割り当てる関数
-// const setListPosTop = (topOrderListsArray: Array<HTMLLIElement>) => {
-//   const listHeightArray: Array<number> = [];
-//   topOrderListsArray.forEach((list) => {
-//     listHeightArray.push(list.clientHeight);
-//     listHeightArray.reduce((accu, curr) => {
-//       list.style.top = `${accu}px`;
-//       return accu + curr;
-//     }, 0);
-//   });
-// };
 const setListPosTop = (): void => {
   const todoListsArray = todoLists
     ? (Array.from(todoLists) as Array<HTMLLIElement>)
@@ -78,7 +68,11 @@ const setListPosTop = (): void => {
   });
 };
 // 並び順とDOMの順番を揃える処理
-const sortDOMTopOrder = (topOrderListsArray: Array<HTMLLIElement>) => {
+const sortDOMTopOrder = (): void => {
+  const todoListsArray = todoLists
+    ? (Array.from(todoLists) as Array<HTMLLIElement>)
+    : [];
+  const topOrderListsArray = sortTopOrderListsArray(todoListsArray);
   topOrderListsArray.forEach((list) => {
     todoUl?.append(list);
   });
@@ -109,8 +103,7 @@ const sortList = {
     coordinates.moveY = coordinates.currentY - coordinates.startY;
     listPosition.currentLeft = listPosition.startLeft + coordinates.moveX;
     listPosition.currentTop = listPosition.startTop + coordinates.moveY;
-    // setListPosTop(sortTopOrderListsArray(todoListsArray));
-    if (list.classList.contains("todo__li--grabbing")) {
+    if (list.classList.contains('todo__li--grabbing')) {
       setListPosTop();
       list.style.left = `${listPosition.currentLeft}px`;
       list.style.top = `${listPosition.currentTop}px`;
@@ -119,7 +112,6 @@ const sortList = {
   end(todoListsArray: Array<HTMLLIElement>) {
     resetListPosLeft(todoListsArray);
     setListPosTop();
-    // sortDOMTopOrder(sortTopOrderListsArray(todoListsArray));
   },
 };
 export const SortList = () => {
@@ -127,25 +119,26 @@ export const SortList = () => {
     ? (Array.from(todoLists) as Array<HTMLLIElement>)
     : [];
   todoListsArray.forEach((list) => {
-    list.addEventListener("touchstart", (e) => {
+    list.addEventListener('touchstart', (e) => {
       sortList.start(e, list);
     });
-    list.addEventListener("touchmove", (e) => {
-      // sortList.move(e, list, todoListsArray);
+    list.addEventListener('touchmove', (e) => {
       sortList.move(e, list);
     });
-    list.addEventListener("touchend", () => {
+    list.addEventListener('touchend', () => {
       sortList.end(todoListsArray);
     });
-    list.addEventListener("mousedown", (e) => {
+    list.addEventListener('mousedown', (e) => {
       sortList.start(e, list);
     });
-    list.addEventListener("mousemove", (e) => {
-      // sortList.move(e, list, todoListsArray);
+    list.addEventListener('mousemove', (e) => {
       sortList.move(e, list);
     });
-    list.addEventListener("mouseup", () => {
+    list.addEventListener('mouseup', () => {
       sortList.end(todoListsArray);
+    });
+    list.addEventListener('focusout', () => {
+      sortDOMTopOrder();
     });
   });
 };
