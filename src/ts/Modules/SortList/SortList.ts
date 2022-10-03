@@ -31,7 +31,7 @@ const listPosition: position = {
 // リストのleftを0に戻す処理
 const resetListPosLeft = (todoListsArray: Array<HTMLLIElement>) => {
   todoListsArray.forEach((list) => {
-    list.style.left = "0px";
+    list.style.left = '0px';
   });
 };
 // topの値順に並び替えたリストの"配列"を返す関数(Map経由で並べ替えてArrayに戻す)
@@ -53,7 +53,21 @@ const sortTopOrderListsArray = (todoListsArray: Array<HTMLLIElement>) => {
   return topOrderListsArray;
 };
 // 自分より上に位置する(topの値が小さい)リストの高さの合計をtopにそれぞれに割り当てる関数
-const setListPosTop = (topOrderListsArray: Array<HTMLLIElement>) => {
+// const setListPosTop = (topOrderListsArray: Array<HTMLLIElement>) => {
+//   const listHeightArray: Array<number> = [];
+//   topOrderListsArray.forEach((list) => {
+//     listHeightArray.push(list.clientHeight);
+//     listHeightArray.reduce((accu, curr) => {
+//       list.style.top = `${accu}px`;
+//       return accu + curr;
+//     }, 0);
+//   });
+// };
+const setListPosTop = (): void => {
+  const todoListsArray = todoLists
+    ? (Array.from(todoLists) as Array<HTMLLIElement>)
+    : [];
+  const topOrderListsArray = sortTopOrderListsArray(todoListsArray);
   const listHeightArray: Array<number> = [];
   topOrderListsArray.forEach((list) => {
     listHeightArray.push(list.clientHeight);
@@ -82,11 +96,7 @@ const sortList = {
     listPosition.startLeft = parseInt(list.style.left);
     listPosition.startTop = parseInt(list.style.top);
   },
-  move(
-    e: TouchEvent | MouseEvent,
-    list: HTMLLIElement,
-    todoListsArray: Array<HTMLLIElement>
-  ) {
+  move(e: TouchEvent | MouseEvent, list: HTMLLIElement) {
     if (e instanceof TouchEvent) {
       coordinates.currentX = e.touches[0].clientX;
       coordinates.currentY = e.touches[0].clientY;
@@ -99,15 +109,17 @@ const sortList = {
     coordinates.moveY = coordinates.currentY - coordinates.startY;
     listPosition.currentLeft = listPosition.startLeft + coordinates.moveX;
     listPosition.currentTop = listPosition.startTop + coordinates.moveY;
-    setListPosTop(sortTopOrderListsArray(todoListsArray));
-    if (list.classList.contains("todo__li--grabbing")) {
+    // setListPosTop(sortTopOrderListsArray(todoListsArray));
+    if (list.classList.contains('todo__li--grabbing')) {
+      setListPosTop();
       list.style.left = `${listPosition.currentLeft}px`;
       list.style.top = `${listPosition.currentTop}px`;
     }
   },
   end(todoListsArray: Array<HTMLLIElement>) {
     resetListPosLeft(todoListsArray);
-    setListPosTop(sortTopOrderListsArray(todoListsArray));
+    setListPosTop();
+    // sortDOMTopOrder(sortTopOrderListsArray(todoListsArray));
   },
 };
 export const SortList = () => {
@@ -115,22 +127,24 @@ export const SortList = () => {
     ? (Array.from(todoLists) as Array<HTMLLIElement>)
     : [];
   todoListsArray.forEach((list) => {
-    list.addEventListener("touchstart", (e) => {
+    list.addEventListener('touchstart', (e) => {
       sortList.start(e, list);
     });
-    list.addEventListener("touchmove", (e) => {
-      sortList.move(e, list, todoListsArray);
+    list.addEventListener('touchmove', (e) => {
+      // sortList.move(e, list, todoListsArray);
+      sortList.move(e, list);
     });
-    list.addEventListener("touchend", () => {
+    list.addEventListener('touchend', () => {
       sortList.end(todoListsArray);
     });
-    list.addEventListener("mousedown", (e) => {
+    list.addEventListener('mousedown', (e) => {
       sortList.start(e, list);
     });
-    list.addEventListener("mousemove", (e) => {
-      sortList.move(e, list, todoListsArray);
+    list.addEventListener('mousemove', (e) => {
+      // sortList.move(e, list, todoListsArray);
+      sortList.move(e, list);
     });
-    list.addEventListener("mouseup", () => {
+    list.addEventListener('mouseup', () => {
       sortList.end(todoListsArray);
     });
   });
