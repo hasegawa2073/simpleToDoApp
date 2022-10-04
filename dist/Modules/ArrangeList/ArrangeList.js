@@ -13,7 +13,7 @@ export const ArrangeList = () => {
         return accu + curr;
     }, 0);
     todoListsArray.forEach((list, i) => {
-        list.style.left = '0px';
+        list.style.left = "0px";
         list.style.top = `${listTopArray[i]}px`;
     });
 };

@@ -4,31 +4,31 @@ let timeoutID;
 const grabList = (target) => {
     const targetList = returnTargetList(target);
     timeoutID = setTimeout(() => {
-        targetList?.classList.add('todo__li--grabbing');
+        targetList?.classList.add("todo__li--grabbing");
     }, 200);
 };
 const releaseList = (target) => {
     const targetList = returnTargetList(target);
     clearTimeout(timeoutID - 1);
     clearTimeout(timeoutID);
-    targetList?.classList.remove('todo__li--grabbing');
+    targetList?.classList.remove("todo__li--grabbing");
 };
 const isGrabbableArea = (target) => {
-    return target.classList.contains('todo__content');
+    return target.classList.contains("todo__content");
 };
 export const GrabList = () => {
     const todoListsArray = todoLists
         ? Array.from(todoLists)
         : [];
     todoListsArray.forEach((list) => {
-        list.addEventListener('touchstart', (e) => {
+        list.addEventListener("touchstart", (e) => {
             e.preventDefault();
             const target = e.target;
             if (isGrabbableArea(target)) {
                 grabList(target);
             }
         });
-        list.addEventListener('touchend', (e) => {
+        list.addEventListener("touchend", (e) => {
             e.preventDefault();
             const target = e.target;
             if (isGrabbableArea(target)) {
@@ -38,13 +38,13 @@ export const GrabList = () => {
                 releaseList(target);
             }, 100);
         });
-        list.addEventListener('mousedown', (e) => {
+        list.addEventListener("mousedown", (e) => {
             const target = e.target;
             if (isGrabbableArea(target)) {
                 grabList(target);
             }
         });
-        list.addEventListener('mouseup', (e) => {
+        list.addEventListener("mouseup", (e) => {
             const target = e.target;
             if (isGrabbableArea(target)) {
                 releaseList(target);
@@ -53,7 +53,7 @@ export const GrabList = () => {
                 releaseList(target);
             }, 100);
         });
-        list.addEventListener('mouseleave', (e) => {
+        list.addEventListener("mouseleave", (e) => {
             const target = e.target;
             if (isGrabbableArea(target)) {
                 releaseList(target);

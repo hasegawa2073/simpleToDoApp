@@ -1,5 +1,5 @@
-import { todoLists, todoUl } from '../../variables/variables.js';
-import { sortTopOrderListsArray } from '../SortList/SortList.js';
+import { todoLists, todoUl } from "../../variables/variables.js";
+import { sortTopOrderListsArray } from "../SortList/SortList.js";
 export const SortDOMTopOrder = (): void => {
   // 並び順とDOMの順番を揃える処理
   const sortDOMTopOrder = (): void => {
@@ -11,7 +11,7 @@ export const SortDOMTopOrder = (): void => {
       todoUl?.appendChild(list);
     });
   };
-  todoUl?.addEventListener('focusout', () => {
+  todoUl?.addEventListener("focusout", () => {
     sortDOMTopOrder();
   });
 };
