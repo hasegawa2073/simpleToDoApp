@@ -1,8 +1,6 @@
 import { todoLists, todoUl } from "../../variables/variables.js";
 
-const targetNode = todoUl as Node;
-const config = { childList: true };
-const arrangeList = (): void => {
+export const ArrangeList = () => {
   const todoListsArray = todoLists
     ? (Array.from(todoLists) as Array<HTMLLIElement>)
     : [];
@@ -16,13 +14,11 @@ const arrangeList = (): void => {
     return accu + curr;
   }, 0);
   todoListsArray.forEach((list, i) => {
-    list.style.left = "0px";
+    list.style.left = '0px';
     list.style.top = `${listTopArray[i]}px`;
   });
 };
-const observer = new MutationObserver(arrangeList);
-
-export const ArrangeList = () => {
-  arrangeList();
-  observer.observe(targetNode, config);
-};
+const targetNode = todoUl as Node;
+const config = { childList: true };
+const observer = new MutationObserver(ArrangeList);
+observer.observe(targetNode, config);

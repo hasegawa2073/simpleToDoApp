@@ -7,7 +7,8 @@ import { GetItem } from "./Modules/GetItem/GetItem.js";
 import { GrabList } from "./Modules/GrabList/GrabList.js";
 import { RemoveList } from "./Modules/RemoveList/RemoveList.js";
 import { SetItem } from "./Modules/SetItem/SetItem.js";
-import { SortList } from "./Modules/SortList/SortList.js";
+import { SortDOMTopOrder } from './Modules/SortDOMTopOrder/SortDOMTopOrder.js';
+import { SortList } from './Modules/SortList/SortList.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   GetItem();
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ArrangeList();
   GrabList();
   SortList();
+  SortDOMTopOrder();
   FocusList();
   DoneList();
   RemoveList();
