@@ -28,7 +28,7 @@ export const GrabList = () => {
                 grabList(target);
             }
         });
-        list.addEventListener("touchend", (e) => {
+        list.addEventListener('touchend', (e) => {
             e.preventDefault();
             const target = e.target;
             if (isGrabbableArea(target)) {
@@ -36,22 +36,22 @@ export const GrabList = () => {
             }
             setTimeout(() => {
                 releaseList(target);
-            }, 100);
+            }, 300);
         });
-        list.addEventListener("mousedown", (e) => {
+        list.addEventListener('mousedown', (e) => {
             const target = e.target;
             if (isGrabbableArea(target)) {
                 grabList(target);
             }
         });
-        list.addEventListener("mouseup", (e) => {
+        list.addEventListener('mouseup', (e) => {
             const target = e.target;
             if (isGrabbableArea(target)) {
                 releaseList(target);
             }
             setTimeout(() => {
                 releaseList(target);
-            }, 100);
+            }, 300);
         });
         list.addEventListener("mouseleave", (e) => {
             const target = e.target;
