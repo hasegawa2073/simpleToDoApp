@@ -7,7 +7,7 @@ const removeList = (target) => {
     timeoutID = setTimeout(() => {
         targetList?.remove();
     }, 2000);
-    if (!targetButton?.classList.contains('todo__button--done')) {
+    if (!targetButton?.classList.contains("todo__button--done")) {
         for (let i = 0; i < timeoutID; i++) {
             clearTimeout(timeoutID - i);
         }
