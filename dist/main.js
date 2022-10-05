@@ -5,6 +5,7 @@ import { DoneList } from "./Modules/DoneList/DoneList.js";
 import { FocusList } from "./Modules/FocusList/FocusList.js";
 import { GetItem } from "./Modules/GetItem/GetItem.js";
 import { GrabList } from "./Modules/GrabList/GrabList.js";
+import { InteractionAddButton } from './Modules/InteractionAddButton/InteractionAddButton.js';
 import { RemoveList } from "./Modules/RemoveList/RemoveList.js";
 import { SetItem } from "./Modules/SetItem/SetItem.js";
 import { SortDOMTopOrder } from "./Modules/SortDOMTopOrder/SortDOMTopOrder.js";
@@ -12,6 +13,7 @@ import { SortList } from "./Modules/SortList/SortList.js";
 document.addEventListener("DOMContentLoaded", () => {
     GetItem();
     AddList();
+    InteractionAddButton();
     ArrangeList();
     GrabList();
     SortList();

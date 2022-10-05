@@ -137,6 +137,7 @@ body {
     border-radius: 50%;
     box-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.25);
     cursor: pointer;
+    transition: transform 0.25s ease;
     &::before,
     &::after {
       content: "";
@@ -154,6 +155,9 @@ body {
     }
     &::after {
       transform: rotate(90deg);
+    }
+    &--active {
+      transform: scale(0.8);
     }
   }
 }
