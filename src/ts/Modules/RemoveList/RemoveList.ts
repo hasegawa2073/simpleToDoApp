@@ -7,9 +7,11 @@ const removeList = (target: HTMLElement) => {
   let timeoutID = undefined;
   timeoutID = setTimeout(() => {
     targetList?.remove();
-  }, 300);
-  if (!targetButton?.classList.contains("todo__button--done")) {
-    clearTimeout(timeoutID - 1);
+  }, 2000);
+  if (!targetButton?.classList.contains('todo__button--done')) {
+    for (let i = 0; i < timeoutID; i++) {
+      clearTimeout(timeoutID - i);
+    }
     clearTimeout(timeoutID);
   }
 };
