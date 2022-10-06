@@ -1,10 +1,10 @@
 @font-face {
-  font-family: "SF Pro Regular";
-  src: url("../font/SF-Pro-Text-Regular.otf") format("opentype");
+  font-family: "Hiragino Kaku Gothic W6";
+  src: url("../font/Hiragino-Kaku-Gothic-W6.ttc") format("truetype");
 }
 @font-face {
   font-family: "Hiragino Kaku Gothic W4";
-  src: url("../font/Hiragino-Kaku Gothic-W4.ttc") format("truetype");
+  src: url("../font/Hiragino-Kaku-Gothic-W4.ttc") format("truetype");
 }
 :root {
   --blue: #1450aa;
@@ -29,8 +29,9 @@ body {
 }
 .header__title {
   margin: 0;
-  font-family: "SF-Pro-Text-Regular", sans-serif;
+  font-family: "Hiragino Kaku Gothic W6";
   font-size: 3.2rem;
+  font-weight: bold;
   color: var(--blue);
 }
 
