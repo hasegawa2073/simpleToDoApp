@@ -15,9 +15,21 @@ export const AddList = () => {
     </p>
   </li>
   `;
-    addButton?.addEventListener("click", () => {
-        todoUl?.insertAdjacentHTML("beforeend", todoLiHtml);
+    const addList = () => {
+        todoUl?.insertAdjacentHTML('beforeend', todoLiHtml);
         FocusNewList();
         RemoveEmptyList();
+    };
+    addButton?.addEventListener('click', () => {
+        addList();
+    });
+    addEventListener('keydown', (e) => {
+        const target = e.target;
+        if (target.classList.contains('todo__text'))
+            return;
+        if (e.code === 'Enter') {
+            e.preventDefault();
+            addList();
+        }
     });
 };
