@@ -17,17 +17,17 @@ export const AddList = () => {
   </li>
   `;
   const addList = (): void => {
-    todoUl?.insertAdjacentHTML('beforeend', todoLiHtml);
+    todoUl?.insertAdjacentHTML("beforeend", todoLiHtml);
     FocusNewList();
     RemoveEmptyList();
   };
-  addButton?.addEventListener('click', () => {
+  addButton?.addEventListener("click", () => {
     addList();
   });
-  addEventListener('keydown', (e) => {
+  addEventListener("keydown", (e) => {
     const target = e.target as HTMLElement;
-    if (target.classList.contains('todo__text')) return;
-    if (e.code === 'Enter') {
+    if (target.classList.contains("todo__text")) return;
+    if (e.code === "Enter") {
       e.preventDefault();
       addList();
     }

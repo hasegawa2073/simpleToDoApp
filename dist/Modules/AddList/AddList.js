@@ -16,18 +16,18 @@ export const AddList = () => {
   </li>
   `;
     const addList = () => {
-        todoUl?.insertAdjacentHTML('beforeend', todoLiHtml);
+        todoUl?.insertAdjacentHTML("beforeend", todoLiHtml);
         FocusNewList();
         RemoveEmptyList();
     };
-    addButton?.addEventListener('click', () => {
+    addButton?.addEventListener("click", () => {
         addList();
     });
-    addEventListener('keydown', (e) => {
+    addEventListener("keydown", (e) => {
         const target = e.target;
-        if (target.classList.contains('todo__text'))
+        if (target.classList.contains("todo__text"))
             return;
-        if (e.code === 'Enter') {
+        if (e.code === "Enter") {
             e.preventDefault();
             addList();
         }
