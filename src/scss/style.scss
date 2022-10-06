@@ -36,6 +36,7 @@ body {
 .todo {
   &__ul {
     position: relative;
+    margin-bottom: 12vh;
     padding-left: 0;
     list-style: none;
   }
@@ -125,7 +126,7 @@ body {
   }
 }
 .add {
-  position: absolute;
+  position: fixed;
   right: 20px;
   bottom: 20px;
   &__button {
