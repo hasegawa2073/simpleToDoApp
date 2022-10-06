@@ -1,6 +1,7 @@
 import { addButton, todoUl } from "../../variables/variables.js";
 import { FocusNewList } from "../FocusNewList/FocusNewList.js";
 import { RemoveEmptyList } from "../RemoveEmptyList/RemoveEmptyList.js";
+import { ScrollToBottom } from '../ScrollToBottom/ScrollToBottom.js';
 export const AddList = () => {
     const todoLiHtml = `
   <li class="todo__li">
@@ -16,18 +17,19 @@ export const AddList = () => {
   </li>
   `;
     const addList = () => {
-        todoUl?.insertAdjacentHTML("beforeend", todoLiHtml);
+        todoUl?.insertAdjacentHTML('beforeend', todoLiHtml);
+        ScrollToBottom();
         FocusNewList();
         RemoveEmptyList();
     };
-    addButton?.addEventListener("click", () => {
+    addButton?.addEventListener('click', () => {
         addList();
     });
-    addEventListener("keydown", (e) => {
+    addEventListener('keydown', (e) => {
         const target = e.target;
-        if (target.classList.contains("todo__text"))
+        if (target.classList.contains('todo__text'))
             return;
-        if (e.code === "Enter") {
+        if (e.code === 'Enter') {
             e.preventDefault();
             addList();
         }
