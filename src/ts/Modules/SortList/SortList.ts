@@ -71,11 +71,11 @@ const setListPosTop = (): void => {
 };
 const sortList = {
   start(e: TouchEvent | MouseEvent, list: HTMLLIElement) {
-    if (e instanceof TouchEvent) {
+    if (window.TouchEvent && e instanceof TouchEvent) {
       coordinates.startX = e.touches[0].clientX;
       coordinates.startY = e.touches[0].clientY;
     }
-    if (e instanceof MouseEvent) {
+    if (window.MouseEvent && e instanceof MouseEvent) {
       coordinates.startX = e.clientX;
       coordinates.startY = e.clientY;
     }
@@ -83,11 +83,11 @@ const sortList = {
     listPosition.startTop = parseInt(list.style.top);
   },
   move(e: TouchEvent | MouseEvent, list: HTMLLIElement) {
-    if (e instanceof TouchEvent) {
+    if (window.TouchEvent && e instanceof TouchEvent) {
       coordinates.currentX = e.touches[0].clientX;
       coordinates.currentY = e.touches[0].clientY;
     }
-    if (e instanceof MouseEvent) {
+    if (window.MouseEvent && e instanceof MouseEvent) {
       coordinates.currentX = e.clientX;
       coordinates.currentY = e.clientY;
     }
