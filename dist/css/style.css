@@ -16,6 +16,7 @@
   --light-gray: #e5e5e5;
   --done-button-size: 24px;
   --add-button-size: 62px;
+  --safe-area-bottom: env(safe-area-inset-bottom);
 }
 
 html {
@@ -23,8 +24,7 @@ html {
 }
 
 body {
-  font-family: -apple-system, "BlinkMacSystemFont", "Helvetica Neue", Arial,
-    "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: -apple-system, "BlinkMacSystemFont", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 }
 
 .header {
@@ -129,7 +129,7 @@ body {
 .add {
   position: fixed;
   right: 20px;
-  bottom: 20px;
+  bottom: calc(var(--safe-area-bottom) + 20px);
 }
 .add__button {
   padding: 0;
@@ -142,8 +142,7 @@ body {
   cursor: pointer;
   transition: transform 0.25s ease;
 }
-.add__button::before,
-.add__button::after {
+.add__button::before, .add__button::after {
   content: "";
   position: absolute;
   top: 0;

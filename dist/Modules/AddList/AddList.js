@@ -3,7 +3,7 @@ import { FocusNewList } from "../FocusNewList/FocusNewList.js";
 import { RemoveEmptyList } from "../RemoveEmptyList/RemoveEmptyList.js";
 import { ScrollToBottom } from "../ScrollToBottom/ScrollToBottom.js";
 export const AddList = () => {
-  const todoLiHtml = `
+    const todoLiHtml = `
   <li class="todo__li">
     <div class="todo__button-area" role="button" aria-label="Todoを完了させる">
       <button
@@ -16,21 +16,23 @@ export const AddList = () => {
     </p>
   </li>
   `;
-  const addList = () => {
-    todoUl?.insertAdjacentHTML("beforeend", todoLiHtml);
-    ScrollToBottom();
-    FocusNewList();
-    RemoveEmptyList();
-  };
-  addButton?.addEventListener("click", () => {
-    addList();
-  });
-  addEventListener("keydown", (e) => {
-    const target = e.target;
-    if (target.classList.contains("todo__text")) return;
-    if (e.code === "Enter") {
-      e.preventDefault();
-      addList();
-    }
-  });
+    const addList = () => {
+        todoUl?.insertAdjacentHTML("beforeend", todoLiHtml);
+        ScrollToBottom();
+        FocusNewList();
+        RemoveEmptyList();
+    };
+    addButton?.addEventListener('click', (e) => {
+        e.preventDefault();
+        addList();
+    });
+    addEventListener("keydown", (e) => {
+        const target = e.target;
+        if (target.classList.contains("todo__text"))
+            return;
+        if (e.code === "Enter") {
+            e.preventDefault();
+            addList();
+        }
+    });
 };

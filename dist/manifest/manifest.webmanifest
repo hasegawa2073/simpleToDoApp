@@ -1,7 +1,7 @@
 {
   "theme_color": "#1450AA",
   "background_color": "#1450AA",
-  "display": "minimal-ui",
+  "display": "fullscreen",
   "scope": "",
   "start_url": "",
   "name": "ToDo",

@@ -17,6 +17,7 @@
   --light-gray: #e5e5e5;
   --done-button-size: 24px;
   --add-button-size: 62px;
+  --safe-area-bottom: env(safe-area-inset-bottom);
 }
 html {
   font-size: 62.5%;
@@ -131,7 +132,7 @@ body {
 .add {
   position: fixed;
   right: 20px;
-  bottom: 20px;
+  bottom: calc(var(--safe-area-bottom) +  20px);
   &__button {
     padding: 0;
     width: var(--add-button-size);
