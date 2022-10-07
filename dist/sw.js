@@ -42,8 +42,6 @@ self.addEventListener("install", (event) => {
       "./manifest/icon-256x256.png",
       "./manifest/icon-384x384.png",
       "./manifest/icon-512x512.png",
-      "./font/Hiragino-Kaku-Gothic-W4.ttc",
-      "./font/Hiragino-Kaku-Gothic-W6.ttc",
       "./variables/variables.js",
       "./Modules/AddList/AddList.js",
       "./Modules/AddUlHeight/AddUlHeight.js",

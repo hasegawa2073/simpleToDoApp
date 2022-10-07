@@ -1,13 +1,3 @@
-@font-face {
-  font-family: "Hiragino Kaku Gothic W6";
-  src: url("../font/Hiragino-Kaku-Gothic-W6.ttc") format("truetype");
-  font-display: swap;
-}
-@font-face {
-  font-family: "Hiragino Kaku Gothic W4";
-  src: url("../font/Hiragino-Kaku-Gothic-W4.ttc") format("truetype");
-  font-display: swap;
-}
 :root {
   --blue: #1450aa;
   --orange: #f89809;
@@ -24,8 +14,7 @@ html {
 }
 
 body {
-  font-family: -apple-system, "BlinkMacSystemFont", "Helvetica Neue", Arial,
-    "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: -apple-system, "BlinkMacSystemFont", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 }
 
 .header {
@@ -33,7 +22,7 @@ body {
 }
 .header__title {
   margin: 0;
-  font-family: "Hiragino Kaku Gothic W6";
+  font-family: "Hiragino Kaku Gothic W6 JIS2004", sans-serif;
   font-size: 3.2rem;
   font-weight: bold;
   color: var(--blue);
@@ -117,7 +106,7 @@ body {
   min-width: 6em;
   line-height: 1.5em;
   letter-spacing: 0.025em;
-  font-family: "Hiragino Kaku Gothic W4";
+  font-family: "Hiragino Kaku Gothic W4 JIS2004";
   font-size: 1.6rem;
   color: var(--dark-gray);
   outline: none;
@@ -143,8 +132,7 @@ body {
   cursor: pointer;
   transition: transform 0.25s ease;
 }
-.add__button::before,
-.add__button::after {
+.add__button::before, .add__button::after {
   content: "";
   position: absolute;
   top: 0;
