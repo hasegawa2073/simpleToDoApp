@@ -23,7 +23,7 @@ export const AddList = () => {
     FocusNewList();
     RemoveEmptyList();
   };
-  addButton?.addEventListener('click', (e) => {
+  addButton?.addEventListener("click", (e) => {
     e.preventDefault();
     addList();
   });

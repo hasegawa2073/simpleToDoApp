@@ -132,7 +132,7 @@ body {
 .add {
   position: fixed;
   right: 20px;
-  bottom: calc(var(--safe-area-bottom) +  20px);
+  bottom: calc(var(--safe-area-bottom) + 20px);
   &__button {
     padding: 0;
     width: var(--add-button-size);
