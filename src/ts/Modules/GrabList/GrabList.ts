@@ -40,7 +40,7 @@ export const GrabList = () => {
       }, 300);
     });
     list.addEventListener(
-      'mousedown',
+      "mousedown",
       (e) => {
         const target = e.target as HTMLElement;
         if (isGrabbableArea(target)) {
@@ -50,7 +50,7 @@ export const GrabList = () => {
       { passive: true }
     );
     list.addEventListener(
-      'mouseup',
+      "mouseup",
       (e) => {
         const target = e.target as HTMLElement;
         if (isGrabbableArea(target)) {
@@ -63,7 +63,7 @@ export const GrabList = () => {
       { passive: true }
     );
     list.addEventListener(
-      'mouseleave',
+      "mouseleave",
       (e) => {
         const target = e.target as HTMLElement;
         if (isGrabbableArea(target)) {

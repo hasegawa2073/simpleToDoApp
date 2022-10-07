@@ -8,35 +8,35 @@ export const InteractionAddButton = () => {
     addButton?.classList.remove("add__button--active");
   };
   addButton?.addEventListener(
-    'touchstart',
+    "touchstart",
     () => {
       buttonInteraction();
     },
     { passive: true }
   );
   addButton?.addEventListener(
-    'touchend',
+    "touchend",
     () => {
       buttonReset();
     },
     { passive: true }
   );
   addButton?.addEventListener(
-    'mousedown',
+    "mousedown",
     () => {
       buttonInteraction();
     },
     { passive: true }
   );
   addButton?.addEventListener(
-    'mouseup',
+    "mouseup",
     () => {
       buttonReset();
     },
     { passive: true }
   );
   addButton?.addEventListener(
-    'mouseleave',
+    "mouseleave",
     () => {
       buttonReset();
     },

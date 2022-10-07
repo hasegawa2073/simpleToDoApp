@@ -112,42 +112,42 @@ export const SortList = () => {
     : [];
   todoListsArray.forEach((list) => {
     list.addEventListener(
-      'touchstart',
+      "touchstart",
       (e) => {
         sortList.start(e, list);
       },
       { passive: true }
     );
     list.addEventListener(
-      'touchmove',
+      "touchmove",
       (e) => {
         sortList.move(e, list);
       },
       { passive: true }
     );
     list.addEventListener(
-      'touchend',
+      "touchend",
       () => {
         sortList.end(todoListsArray);
       },
       { passive: true }
     );
     list.addEventListener(
-      'mousedown',
+      "mousedown",
       (e) => {
         sortList.start(e, list);
       },
       { passive: true }
     );
     list.addEventListener(
-      'mousemove',
+      "mousemove",
       (e) => {
         sortList.move(e, list);
       },
       { passive: true }
     );
     list.addEventListener(
-      'mouseup',
+      "mouseup",
       () => {
         sortList.end(todoListsArray);
       },

@@ -6,19 +6,19 @@ export const InteractionAddButton = () => {
     const buttonReset = () => {
         addButton?.classList.remove("add__button--active");
     };
-    addButton?.addEventListener('touchstart', () => {
+    addButton?.addEventListener("touchstart", () => {
         buttonInteraction();
     }, { passive: true });
-    addButton?.addEventListener('touchend', () => {
+    addButton?.addEventListener("touchend", () => {
         buttonReset();
     }, { passive: true });
-    addButton?.addEventListener('mousedown', () => {
+    addButton?.addEventListener("mousedown", () => {
         buttonInteraction();
     }, { passive: true });
-    addButton?.addEventListener('mouseup', () => {
+    addButton?.addEventListener("mouseup", () => {
         buttonReset();
     }, { passive: true });
-    addButton?.addEventListener('mouseleave', () => {
+    addButton?.addEventListener("mouseleave", () => {
         buttonReset();
     }, { passive: true });
 };

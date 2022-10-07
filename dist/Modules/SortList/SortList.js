@@ -92,22 +92,22 @@ export const SortList = () => {
         ? Array.from(todoLists)
         : [];
     todoListsArray.forEach((list) => {
-        list.addEventListener('touchstart', (e) => {
+        list.addEventListener("touchstart", (e) => {
             sortList.start(e, list);
         }, { passive: true });
-        list.addEventListener('touchmove', (e) => {
+        list.addEventListener("touchmove", (e) => {
             sortList.move(e, list);
         }, { passive: true });
-        list.addEventListener('touchend', () => {
+        list.addEventListener("touchend", () => {
             sortList.end(todoListsArray);
         }, { passive: true });
-        list.addEventListener('mousedown', (e) => {
+        list.addEventListener("mousedown", (e) => {
             sortList.start(e, list);
         }, { passive: true });
-        list.addEventListener('mousemove', (e) => {
+        list.addEventListener("mousemove", (e) => {
             sortList.move(e, list);
         }, { passive: true });
-        list.addEventListener('mouseup', () => {
+        list.addEventListener("mouseup", () => {
             sortList.end(todoListsArray);
         }, { passive: true });
     });

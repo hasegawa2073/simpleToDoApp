@@ -38,13 +38,13 @@ export const GrabList = () => {
                 releaseList(target);
             }, 300);
         });
-        list.addEventListener('mousedown', (e) => {
+        list.addEventListener("mousedown", (e) => {
             const target = e.target;
             if (isGrabbableArea(target)) {
                 grabList(target);
             }
         }, { passive: true });
-        list.addEventListener('mouseup', (e) => {
+        list.addEventListener("mouseup", (e) => {
             const target = e.target;
             if (isGrabbableArea(target)) {
                 releaseList(target);
@@ -53,7 +53,7 @@ export const GrabList = () => {
                 releaseList(target);
             }, 300);
         }, { passive: true });
-        list.addEventListener('mouseleave', (e) => {
+        list.addEventListener("mouseleave", (e) => {
             const target = e.target;
             if (isGrabbableArea(target)) {
                 releaseList(target);
