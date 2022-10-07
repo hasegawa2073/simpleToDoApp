@@ -7,19 +7,39 @@ export const InteractionAddButton = () => {
   const buttonReset = () => {
     addButton?.classList.remove("add__button--active");
   };
-  addButton?.addEventListener("touchstart", () => {
-    buttonInteraction();
-  });
-  addButton?.addEventListener("touchend", () => {
-    buttonReset();
-  });
-  addButton?.addEventListener("mousedown", () => {
-    buttonInteraction();
-  });
-  addButton?.addEventListener("mouseup", () => {
-    buttonReset();
-  });
-  addButton?.addEventListener("mouseleave", () => {
-    buttonReset();
-  });
+  addButton?.addEventListener(
+    'touchstart',
+    () => {
+      buttonInteraction();
+    },
+    { passive: true }
+  );
+  addButton?.addEventListener(
+    'touchend',
+    () => {
+      buttonReset();
+    },
+    { passive: true }
+  );
+  addButton?.addEventListener(
+    'mousedown',
+    () => {
+      buttonInteraction();
+    },
+    { passive: true }
+  );
+  addButton?.addEventListener(
+    'mouseup',
+    () => {
+      buttonReset();
+    },
+    { passive: true }
+  );
+  addButton?.addEventListener(
+    'mouseleave',
+    () => {
+      buttonReset();
+    },
+    { passive: true }
+  );
 };

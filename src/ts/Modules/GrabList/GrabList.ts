@@ -39,27 +39,39 @@ export const GrabList = () => {
         releaseList(target);
       }, 300);
     });
-    list.addEventListener("mousedown", (e) => {
-      const target = e.target as HTMLElement;
-      if (isGrabbableArea(target)) {
-        grabList(target);
-      }
-    });
-    list.addEventListener("mouseup", (e) => {
-      const target = e.target as HTMLElement;
-      if (isGrabbableArea(target)) {
-        releaseList(target);
-      }
-      setTimeout(() => {
-        releaseList(target);
-      }, 300);
-    });
-    list.addEventListener("mouseleave", (e) => {
-      const target = e.target as HTMLElement;
-      if (isGrabbableArea(target)) {
-        releaseList(target);
-      }
-    });
+    list.addEventListener(
+      'mousedown',
+      (e) => {
+        const target = e.target as HTMLElement;
+        if (isGrabbableArea(target)) {
+          grabList(target);
+        }
+      },
+      { passive: true }
+    );
+    list.addEventListener(
+      'mouseup',
+      (e) => {
+        const target = e.target as HTMLElement;
+        if (isGrabbableArea(target)) {
+          releaseList(target);
+        }
+        setTimeout(() => {
+          releaseList(target);
+        }, 300);
+      },
+      { passive: true }
+    );
+    list.addEventListener(
+      'mouseleave',
+      (e) => {
+        const target = e.target as HTMLElement;
+        if (isGrabbableArea(target)) {
+          releaseList(target);
+        }
+      },
+      { passive: true }
+    );
   });
 };
 const targetNode = todoUl as Node;

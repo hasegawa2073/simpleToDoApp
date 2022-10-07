@@ -111,24 +111,48 @@ export const SortList = () => {
     ? (Array.from(todoLists) as Array<HTMLLIElement>)
     : [];
   todoListsArray.forEach((list) => {
-    list.addEventListener("touchstart", (e) => {
-      sortList.start(e, list);
-    });
-    list.addEventListener("touchmove", (e) => {
-      sortList.move(e, list);
-    });
-    list.addEventListener("touchend", () => {
-      sortList.end(todoListsArray);
-    });
-    list.addEventListener("mousedown", (e) => {
-      sortList.start(e, list);
-    });
-    list.addEventListener("mousemove", (e) => {
-      sortList.move(e, list);
-    });
-    list.addEventListener("mouseup", () => {
-      sortList.end(todoListsArray);
-    });
+    list.addEventListener(
+      'touchstart',
+      (e) => {
+        sortList.start(e, list);
+      },
+      { passive: true }
+    );
+    list.addEventListener(
+      'touchmove',
+      (e) => {
+        sortList.move(e, list);
+      },
+      { passive: true }
+    );
+    list.addEventListener(
+      'touchend',
+      () => {
+        sortList.end(todoListsArray);
+      },
+      { passive: true }
+    );
+    list.addEventListener(
+      'mousedown',
+      (e) => {
+        sortList.start(e, list);
+      },
+      { passive: true }
+    );
+    list.addEventListener(
+      'mousemove',
+      (e) => {
+        sortList.move(e, list);
+      },
+      { passive: true }
+    );
+    list.addEventListener(
+      'mouseup',
+      () => {
+        sortList.end(todoListsArray);
+      },
+      { passive: true }
+    );
   });
 };
 const targetNode = todoUl as Node;
