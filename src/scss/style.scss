@@ -1,10 +1,12 @@
 @font-face {
   font-family: "Hiragino Kaku Gothic W6";
   src: url("../font/Hiragino-Kaku-Gothic-W6.ttc") format("truetype");
+  font-display: swap;
 }
 @font-face {
   font-family: "Hiragino Kaku Gothic W4";
   src: url("../font/Hiragino-Kaku-Gothic-W4.ttc") format("truetype");
+  font-display: swap;
 }
 
 :root {
