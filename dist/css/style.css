@@ -24,7 +24,8 @@ html {
 }
 
 body {
-  font-family: -apple-system, "BlinkMacSystemFont", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: -apple-system, "BlinkMacSystemFont", "Helvetica Neue", Arial,
+    "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 }
 
 .header {
@@ -142,7 +143,8 @@ body {
   cursor: pointer;
   transition: transform 0.25s ease;
 }
-.add__button::before, .add__button::after {
+.add__button::before,
+.add__button::after {
   content: "";
   position: absolute;
   top: 0;
