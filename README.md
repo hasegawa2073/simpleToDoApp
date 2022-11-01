@@ -1,5 +1,7 @@
 # ToDoアプリ(PWA)
 
+![ToDoアプリ](mockup.jpg)
+
 ## 概要
 ドラッグでタスクを並べ替えられるToDoアプリ(PWA化済み)
 
